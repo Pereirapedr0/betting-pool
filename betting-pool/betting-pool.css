@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+
+form {
+  max-width: 400px;
+}
+
+input {
+  width: calc(50% - 4px);
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
