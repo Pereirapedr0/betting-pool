@@ -1,22 +1,142 @@
+body {
+  background-color: #383838;
+  color: #DDDDDD;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+nav {
+  background-color: #306F51; /* Green background color */
+  padding: 15px;
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  color: #FEE418;
+  font-size: xx-large;
+  font-style: italic;
+}
+
+nav {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust shadow values as needed */
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+
+.inline-item {
+  display: inline-block;
+}
+
 table {
   border-collapse: collapse;
+  width: calc(33%);
 }
+
+caption {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #6EEFBB;
+  margin-bottom: 10px;
+}
+
+thead {
+  background-color: #515B48;
+  font-weight: bold;
+	letter-spacing: 10%;
+}
+
+tbody {
+  background-color: #3C4435;
+}
+
 td,
 th {
-  border: 1px solid black;
-  padding: 10px 20px;
+  border: 1px solid #7e7e7e;
+  border-left: none;
+  border-right: none;
+  padding: 5px 5px 5px 5px;
+  text-align: left;
+}
+
+thead th {
+  width: 400px;
+}
+
+table th:nth-child(1) {
+  width: 2px;
+}
+
+tbody td:nth-child(1) {
+  color: #FEE418;
+}
+
+tbody td {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  color: #6EEFBB;
 }
 
 form {
+  width: calc(33%);
   max-width: 400px;
 }
 
+label {
+  width: 200px;
+  padding: 0 20px;
+}
+
 input {
-  width: calc(50% - 4px);
+  width: 20px;
+  height: 20px;
+  background-color: #4B514D;
+  border: none;
+  color: #FEE418;
+  text-align: center;
+  font-weight: bold;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #4B514D inset;
+}
+
+.versus {
+  margin: 5px 10px;
 }
 
 .match {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #464646;
+  color: #FFFFFF;
+  margin: 20px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0)
+}
+
+button {
+  background-color: #6EEFBB;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: #FEE418;
 }
