@@ -129,12 +129,18 @@ input:-webkit-autofill {
   border: 1px solid rgba(0, 0, 0, 0)
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   background-color: #6EEFBB;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 10px 5px;
 }
 
 button:hover {
