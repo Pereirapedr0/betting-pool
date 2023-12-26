@@ -37,7 +37,7 @@
       `;
         const table = document.getElementById("ranking_table")
         if (table) {
-          const body = document.getElementByTagName('body')[0];
+          const body = document.getElementById('body')[0];
           body.insertAdjacentHTML('beforeend', rankingTable)
         }
       }
@@ -46,26 +46,20 @@
       for (let time = 0; time < times.length; time++) {
         let jogo =
           `<div class="match">
-          <label for="team1">${times[time]}</label>
+          <label for="team1">"time${time}"</label>
           <input type="text" id="team1" name="team1" required>
           <p class="versus"> X </p>
           <input type="text" id="team2" name="team2" required>
-          <label for="team2">${times[time]}</label>
+          <label for="team2">"time${time}"</label>
         </div>`}
         const body = document.getElementById("body");
-        body.insertAdjacentHTML('beforeend', jogo)
+        body.insertAdjacentHTML('beforeend', jogo);
       </script>
 </head>
 
 <body>
   <nav>Bet 563</nav>
   <div class="container">
-    <script>
-      const qualquerNome = document.getElementById("times")
-      for (let equipes= 0; equipes < qualquerNome.length; equipes++){
-        console.log(qualquerNome);
-      }
-    </script>
   <!-- <table class="inline-item">
     <caption>Soccer Ranking</caption>
     <thead>
