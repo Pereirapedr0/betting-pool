@@ -36,7 +36,7 @@
           </table>
       `;
         const table = document.getElementById("ranking_table")
-        if (table) {
+        if (!table) {
           const body = document.getElementById('body')[0];
           body.insertAdjacentHTML('beforeend', rankingTable)
         }
@@ -46,12 +46,13 @@
       for (let time = 0; time < times.length; time++) {
         let jogo =
           `<div class="match">
-          <label for="team1">"time${time}"</label>
+          <label for="team1">"team1${time}"</label>
           <input type="text" id="team1" name="team1" required>
           <p class="versus"> X </p>
           <input type="text" id="team2" name="team2" required>
-          <label for="team2">"time${time}"</label>
-        </div>`}
+          <label for="team2">"team2${time}"</label>
+        </div>`
+      };
         const body = document.getElementById("body");
         body.insertAdjacentHTML('beforeend', jogo);
       </script>
