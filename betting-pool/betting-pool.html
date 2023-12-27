@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="refresh" content="5" > -->
-    <link rel="stylesheet" type="text/css" href="./betting-pool.css" />
-    <script type="text/javascript" src="./index.js"></script>
-    <title>Betting Pool</title>
-    <script>
-      function getInputValues() {
-        const inputData = document.getElementById('team1').value;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="5" > -->
+  <link rel="stylesheet" type="text/css" href="./betting-pool.css" />
+  <script type="text/javascript" src="./index.js"></script>
+  <title>Betting Pool</title>
+  <script>
+    function getInputValues() {
+      const inputData = document.getElementById('team1').value;
 
-        calculateRanking()
-      }
+      calculateRanking()
+    }
 
-      function calculateRanking() {
-        const rankingTable = `
+    function calculateRanking() {
+      const rankingTable = `
           <table border="1" id="ranking_table">
               <caption>Caption</caption>
               <thead>
@@ -35,33 +35,54 @@
               <tbody>
           </table>
       `;
-        const table = document.getElementById("ranking_table")
-        if (!table) {
-          const body = document.getElementById('body')[0];
-          body.insertAdjacentHTML('beforeend', rankingTable)
-        }
-      }
-    </script>
-    <script>
-      for (let time = 0; time < times.length; time++) {
-        let jogo =
-          `<div class="match">
-          <label for="team1">"team1${time}"</label>
-          <input type="text" id="team1" name="team1" required>
-          <p class="versus"> X </p>
-          <input type="text" id="team2" name="team2" required>
-          <label for="team2">"team2${time}"</label>
-        </div>`
-      };
-        const body = document.getElementById("body");
-        body.insertAdjacentHTML('beforeend', jogo);
-      </script>
-</head>
 
-<body>
-  <nav>Bet 563</nav>
-  <div class="container">
-  <!-- <table class="inline-item">
+      const table = document.getElementById("ranking_table")
+      if (!table) {
+        const body = document.getElementById('body')[0];
+        body.insertAdjacentHTML('beforeend', rankingTable)
+      }
+    }
+  </script>
+
+<body id="body">
+  <!-- inicio do chaveamento dos times -->
+  <script>
+    const body = document.getElementById("body");
+    if (body) {
+      let matchTimes = 2;
+      for (let i = 0; i < times.length; i++)
+
+        if (matchTimes > 1) {
+          i++;
+          let jogo =
+            `<div class="match">
+            <label for="team1">${times[i].nome}</label>
+            <input type="text" id="team1" name="" required>
+            <p class="versus"> X </p>
+            <input type="text" id="team2" name="" required>
+            <label for="team2">${times[i + 1].nome}</label>
+          </div>`;
+          body.insertAdjacentHTML('beforeend', jogo);
+        } else if (matchTimes = 0) {
+          let jogo =
+            `<div class="match">
+            <label for="team1">${times[i].nome}</label>
+            <input type="text" id="team1" name="" required>
+            <p class="versus"> X </p>
+            <input type="text" id="team2" name="" required>
+            <label for="team2">${times[i + 1].nome}</label>
+          </div>`;
+          contar = 2;
+          body.insertAdjacentHTML('beforeend', jogo);
+        }
+    }
+  </script>
+  </head>
+
+  <body>
+    <nav>Bet 563</nav>
+    <div class="container">
+      <!-- <table class="inline-item">
     <caption>Soccer Ranking</caption>
     <thead>
       <th>Rank</th>
@@ -97,7 +118,7 @@
     </tbody>
   </table> -->
 
-  <!-- <form onsubmit="getInputValues(); return false;" class="inline-item">
+      <!-- <form onsubmit="getInputValues(); return false;" class="inline-item">
     <h1 class="title">Matches</h1>
     <div class="match">
         <label for="team1">Tabajara</label>
@@ -119,13 +140,14 @@
       <button type="button" onclick="randomizeResult()">Game Result</button>
       <button>Finish Round</button>
     </div>
-  </form> -->
-  <form onsubmit="getInputValues(); return false;" class="inline-item">
-    <h1 class="title">Matches</h1>
-    <div class="match">
+    </form> -->
+      <form onsubmit="getInputValues(); return false;" class="inline-item">
+        <h1 class="title">Matches</h1>
+        <div class="match">
 
+        </div>
+      </form>
     </div>
-  </form> 
-  </div>
-</body>
+  </body>
+
 </html>

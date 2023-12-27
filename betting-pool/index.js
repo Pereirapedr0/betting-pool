@@ -8,7 +8,7 @@ let times = [
   {nome:'Criciuma Futebol Clube', jogos: 0, pontos:0},
   {nome:'Cruzeiro Esporte Clube', jogos: 0, pontos:0},
   {nome:'Cuiaba Esporte Clube', jogos: 0, pontos:0},
-  {nome:'Flamengo Futebol e Regatas', jogos: 0, pontos:0},
+  {nome:'Clube de Regatas Flamengo', jogos: 0, pontos:0},
   {nome:'Fluminense Futebol Clube', jogos: 0, pontos:0},
   {nome:'Fortaleza Esporte Clube', jogos: 0, pontos:0},
   {nome:'Gremio Esporte Clube', jogos: 0, pontos:0},
