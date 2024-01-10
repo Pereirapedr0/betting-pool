@@ -38,51 +38,40 @@
 
       const table = document.getElementById("ranking_table")
       if (!table) {
-        const body = document.getElementById('body')[0];
+        const body = document.getElementsByTagName('body')[0];
         body.insertAdjacentHTML('beforeend', rankingTable)
       }
     }
   </script>
 
-<body id="body">
+
   <!-- inicio do chaveamento dos times -->
   <script>
-    const body = document.getElementById("body");
-    if (body) {
-      let matchTimes = 2;
-      for (let i = 0; i < times.length; i++)
-
-        if (matchTimes > 1) {
-          i++;
-          let jogo =
-            `<div class="match">
+    window.onload = function () {
+      const body = document.getElementsByTagName("body")[0];
+      if (body) {
+        for (let i = 0; i < times.length; i++) {
+          if (i % 2 == 0) {
+           let jogo =
+              `<div class="match">
             <label for="team1">${times[i].nome}</label>
             <input type="text" id="team1" name="" required>
             <p class="versus"> X </p>
             <input type="text" id="team2" name="" required>
             <label for="team2">${times[i + 1].nome}</label>
           </div>`;
-          body.insertAdjacentHTML('beforeend', jogo);
-        } else if (matchTimes = 0) {
-          let jogo =
-            `<div class="match">
-            <label for="team1">${times[i].nome}</label>
-            <input type="text" id="team1" name="" required>
-            <p class="versus"> X </p>
-            <input type="text" id="team2" name="" required>
-            <label for="team2">${times[i + 1].nome}</label>
-          </div>`;
-          contar = 2;
-          body.insertAdjacentHTML('beforeend', jogo);
+            body.insertAdjacentHTML('beforeend', jogo);
+          }
         }
+      }
     }
   </script>
-  </head>
+</head>
 
-  <body>
-    <nav>Bet 563</nav>
-    <div class="container">
-      <!-- <table class="inline-item">
+<body>
+  <nav>Bet 563</nav>
+  <div class="container">
+    <!-- <table class="inline-item">
     <caption>Soccer Ranking</caption>
     <thead>
       <th>Rank</th>
@@ -118,7 +107,7 @@
     </tbody>
   </table> -->
 
-      <!-- <form onsubmit="getInputValues(); return false;" class="inline-item">
+    <!-- <form onsubmit="getInputValues(); return false;" class="inline-item">
     <h1 class="title">Matches</h1>
     <div class="match">
         <label for="team1">Tabajara</label>
@@ -134,20 +123,34 @@
       <p class="versus"> X </p>
       <input type="text" id="team4" name="team3" required>
       <label for="team2">Higachi Ichi</label>
-    </div>
+    </div> -->
 
     <div class="buttons">
       <button type="button" onclick="randomizeResult()">Game Result</button>
-      <button>Finish Round</button>
-    </div>
-    </form> -->
-      <form onsubmit="getInputValues(); return false;" class="inline-item">
-        <h1 class="title">Matches</h1>
-        <div class="match">
+      <script>
+        function randomizeResult() {
+          let equipe1 = Math.floor(Math.random() * 4);
+          let equipe2 = Math.floor(Math.random() * 4);
+          generateResult(equipe1, equipe2);
+        }
 
-        </div>
-      </form>
+        function generateResult(equipe1, equipe2) {
+
+          console.log("time 1: " + equipe1 + ", time 2: " + equipe2);
+        }
+      </script>
     </div>
-  </body>
+
+    <!-- <button>Finish Round</button> -->
+  </div>
+  </form>
+  <form onsubmit="getInputValues(); return false;" class="inline-item">
+    <h1 class="title">Matches</h1>
+    <div class="match">
+
+    </div>
+  </form>
+  </div>
+</body>
 
 </html>
