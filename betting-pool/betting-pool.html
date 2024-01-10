@@ -48,21 +48,29 @@
   <!-- inicio do chaveamento dos times -->
   <script>
     window.onload = function () {
-      const body = document.getElementsByTagName("body")[0];
-      if (body) {
+      const game = document.getElementById("matches");
+      if (game) {
         for (let i = 0; i < times.length; i++) {
           if (i % 2 == 0) {
-           let jogo =
+            let jogo =
               `<div class="match">
-            <label for="team1">${times[i].nome}</label>
-            <input type="text" id="team1" name="" required>
+            <label for="team${i}">${times[i].nome}</label>
+            <input type="text" id="team${i}" name="" required>
             <p class="versus"> X </p>
-            <input type="text" id="team2" name="" required>
-            <label for="team2">${times[i + 1].nome}</label>
+            <input type="text" id="team${i + 1}" name="" required>
+            <label for="team${i + 1}">${times[i + 1].nome}</label>
           </div>`;
-            body.insertAdjacentHTML('beforeend', jogo);
+            game.insertAdjacentHTML('afterend', jogo);
           }
         }
+      }
+    }
+
+    function randomizeResult() {
+      for (let i = 0; i < times.length; i++) {        
+        const input = document.getElementById(`team${i}`);
+        let team1 = Math.floor(Math.random() * 4);
+        input.value = team1;
       }
     }
   </script>
@@ -107,41 +115,13 @@
     </tbody>
   </table> -->
 
-    <!-- <form onsubmit="getInputValues(); return false;" class="inline-item">
-    <h1 class="title">Matches</h1>
-    <div class="match">
-        <label for="team1">Tabajara</label>
-        <input type="text" id="team1" name="team1" required>
-        <p class="versus"> X </p>
-        <input type="text" id="team2" name="team2" required>
-        <label for="team2">Divino FC</label>
+    <form onsubmit="getInputValues(); return false;" class="inline-item">
+      <h1 class="title" id="matches">Matches</h1>
+      <div class="buttons">
+        <button type="button" onclick="randomizeResult()">Game Result</button>
       </div>
 
-    <div class="match">
-      <label for="team1">Vila Xurupita</label>
-      <input type="text" id="team3" name="team3" required>
-      <p class="versus"> X </p>
-      <input type="text" id="team4" name="team3" required>
-      <label for="team2">Higachi Ichi</label>
-    </div> -->
-
-    <div class="buttons">
-      <button type="button" onclick="randomizeResult()">Game Result</button>
-      <script>
-        function randomizeResult() {
-          let equipe1 = Math.floor(Math.random() * 4);
-          let equipe2 = Math.floor(Math.random() * 4);
-          generateResult(equipe1, equipe2);
-        }
-
-        function generateResult(equipe1, equipe2) {
-
-          console.log("time 1: " + equipe1 + ", time 2: " + equipe2);
-        }
-      </script>
-    </div>
-
-    <!-- <button>Finish Round</button> -->
+      <!-- <button>Finish Round</button> -->
   </div>
   </form>
   <form onsubmit="getInputValues(); return false;" class="inline-item">
