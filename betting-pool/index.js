@@ -20,3 +20,11 @@ let times = [
   {nome:'Vitória Esporte Clube', jogos: 0, pontos:0},
   {nome:'Sociedade Esportiva Corinthians Paulista', jogos: 0, pontos:0},
 ];
+
+// caso resultado do time 1 > resultado time1 = 3pt
+// caso resultado do time 1 = resultado time1 & time2 = 1pt
+// caso resultado do time 1 > resultado time2 = 3pt
+
+// times[0]
+// times[9].pontos = times[9].pontos + 1
+// a = a + 1

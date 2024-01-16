@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta http-equiv="refresh" content="5" > -->
   <link rel="stylesheet" type="text/css" href="./betting-pool.css" />
   <script type="text/javascript" src="./index.js"></script>
   <title>Betting Pool</title>
@@ -45,9 +44,37 @@
   </script>
 
 
-  <!-- inicio do chaveamento dos times -->
   <script>
     window.onload = function () {
+      generateMatches();
+    }
+
+    function randomizeResult() {
+      for (let i = 0; i < times.length; i++) {
+        const input = document.getElementById(`team${i}`);
+        let team1 = Math.floor(Math.random() * 4);
+        input.value = team1;
+      }
+    }
+    function finishRound() {
+      for (let i = 0; i < times.length; i++) {
+        if (i % 2 == 0) {
+          const goal1 = document.getElementById(`team${i}`).value;
+          const goal2 = document.getElementById(`team${i + 1}`).value;
+          if (goal1 > goal2) {
+            times[i].pontos = times[i].pontos + 3
+          } if (goal2 > goal1) {
+            times[i + 1].pontos = times[i + 1].pontos + 3
+          } else if (goal1 == goal2) {
+            times[i].pontos = times[i].pontos + 1
+            times[i + 1].pontos = times[i + 1].pontos + 1
+          }
+        }
+        times[i].jogos = times[i].jogos + 1;
+      }
+      console.log(times);
+    }
+    function generateMatches() {
       const game = document.getElementById("matches");
       if (game) {
         for (let i = 0; i < times.length; i++) {
@@ -65,14 +92,25 @@
         }
       }
     }
+    function newRound() {
 
-    function randomizeResult() {
-      for (let i = 0; i < times.length; i++) {        
-        const input = document.getElementById(`team${i}`);
-        let team1 = Math.floor(Math.random() * 4);
-        input.value = team1;
-      }
+      const formulario = document.getElementById('formulario');
+
+      const divs = formulario.getElementsByTagName('div');
+
+      const divsArray = Array.from(divs);
+
+      divsArray.forEach(function (div) {
+        div.parentNode.removeChild(div);
+      });
+
+      // criar a tabela com os resultados
+      // destruir as partidas velhas
+      // criar partidas novas
+      generateMatches();
+
     }
+
   </script>
 </head>
 
@@ -115,14 +153,14 @@
     </tbody>
   </table> -->
 
-    <form onsubmit="getInputValues(); return false;" class="inline-item">
+    <form id="formulario" onsubmit="getInputValues(); return false;" class="inline-item">
       <h1 class="title" id="matches">Matches</h1>
       <div class="buttons">
         <button type="button" onclick="randomizeResult()">Game Result</button>
+        <button type="button" onclick="finishRound()">Finish Round</button>
+        <button type="button" onclick="newRound()">New Round</button>
       </div>
-
-      <!-- <button>Finish Round</button> -->
-  </div>
+      <!-- </div>
   </form>
   <form onsubmit="getInputValues(); return false;" class="inline-item">
     <h1 class="title">Matches</h1>
@@ -130,7 +168,7 @@
 
     </div>
   </form>
-  </div>
+  </div> -->
 </body>
 
 </html>
