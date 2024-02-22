@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./betting-pool.css" />
   <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript" src="./randomizer.js"></script>
   <title>Betting Pool</title>
   <script>
     function getInputValues() {
@@ -45,15 +46,20 @@
 
 
   <script>
+    let rodada = [];
+    let partidas = [];
     window.onload = function () {
       generateMatches();
     }
 
     function randomizeResult() {
-      for (let i = 0; i < times.length; i++) {
-        const input = document.getElementById(`team${i}`);
+      for (let i = 0; i < rodada.length; i++) {
+        const input = document.getElementById(`team${rodada[i][0]}`);
+        const input1 = document.getElementById(`team${rodada[i][1]}`);
         let team1 = Math.floor(Math.random() * 4);
+        let team0 = Math.floor(Math.random() * 4);
         input.value = team1;
+        input1.value = team0;
       }
     }
     function finishRound() {
@@ -75,40 +81,40 @@
       console.log(times);
     }
     function generateMatches() {
+      rodada = gerarRodada(partidas);
       const game = document.getElementById("matches");
       if (game) {
-        for (let i = 0; i < times.length; i++) {
-          if (i % 2 == 0) {
-            let jogo =
-              `<div class="match">
-            <label for="team${i}">${times[i].nome}</label>
-            <input type="text" id="team${i}" name="" required>
+        for (let i = 0; i < rodada.length; i++) {
+          let jogo =
+            `<div class="match">
+            <label for="team${rodada[i][0]}">${rodada[i][0]}</label>
+            <input type="text" id="team${rodada[i][0]}" name="" required>
             <p class="versus"> X </p>
-            <input type="text" id="team${i + 1}" name="" required>
-            <label for="team${i + 1}">${times[i + 1].nome}</label>
+            <input type="text" id="team${rodada[i][1]}" name="" required>
+            <label for="team${rodada[i][1]}">${rodada[i][1]}</label>
           </div>`;
-            game.insertAdjacentHTML('afterend', jogo);
-          }
+          game.insertAdjacentHTML('afterend', jogo);
         }
+        partidas.push(...rodada);
       }
-    }
+    };
+
     function newRound() {
 
       const formulario = document.getElementById('formulario');
 
-      const divs = formulario.getElementsByTagName('div');
+      const divs = formulario.getElementsByClassName('match');
 
       const divsArray = Array.from(divs);
 
       divsArray.forEach(function (div) {
         div.parentNode.removeChild(div);
       });
+      generateMatches();
 
       // criar a tabela com os resultados
       // destruir as partidas velhas
       // criar partidas novas
-      generateMatches();
-
     }
 
   </script>
