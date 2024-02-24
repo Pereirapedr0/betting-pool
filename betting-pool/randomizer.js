@@ -27,4 +27,4 @@ function gerarRodada(partidas) {
     }
 
     return rodadaSendoConstruida;
-}
+};

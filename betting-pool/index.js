@@ -18,7 +18,7 @@ let times = [
   {nome:'São Paulo Futebol Clube', jogos: 0, pontos:0},
   {nome:'Clube Regatas Vasco da Gama', jogos: 0, pontos:0},
   {nome:'Vitória Esporte Clube', jogos: 0, pontos:0},
-  {nome:'Sociedade Esportiva Corinthians Paulista', jogos: 0, pontos:0},
+  {nome:'Sociedade Esportiva Corinthians Paulista', jogos: 0, pontos:0}
 ];
 
 // caso resultado do time 1 > resultado time1 = 3pt
