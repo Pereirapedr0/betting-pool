@@ -1,4 +1,4 @@
-function gerarRodada(partidas) {
+function gerarRodadas(partidas) {
     const rodadaSendoConstruida = [] 
     const timesJaNaRodada = [];
 
