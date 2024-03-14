@@ -1,30 +1,24 @@
-function gerarRodadas(partidas) {
-    const rodadaSendoConstruida = [] 
-    const timesJaNaRodada = [];
 
-    for (let i = 0; i < times.length; i++) {
-        for (let j = i + 1; j < times.length; j++) {
-            const timesNaoEstaoNaRodada = !timesJaNaRodada.includes(times[i].nome) && !timesJaNaRodada.includes(times[j].nome);
-            if (timesNaoEstaoNaRodada) {
-                if (partidas.length === 0) {
-                    rodadaSendoConstruida.push([times[i].nome, times[j].nome]);
-                    timesJaNaRodada.push(times[i].nome);
-                    timesJaNaRodada.push(times[j].nome);
-                } else {
-                    const partida = [times[i].nome, times[j].nome];
-                    const jaAconteceu = partidas.some(partidaAnterior =>
-                        JSON.stringify(partida) === JSON.stringify(partidaAnterior)
-                    );
 
-                    if (!jaAconteceu) {
-                        rodadaSendoConstruida.push([times[i].nome, times[j].nome]);
-                        timesJaNaRodada.push(times[i].nome);
-                        timesJaNaRodada.push(times[j].nome);
-                    }
-                }
-            }
+function gerarRodadas(times) {
+    const numeroDeRodadas = times.length - 1;
+    const numeroDePartidasPorRodada = times.length / 2;
+
+    const rodadas = [];
+
+    for (let rodada = 0; rodada < numeroDeRodadas; rodada++) {
+        const partidas = [];
+
+        for (let partida = 0; partida < numeroDePartidasPorRodada; partida++) {
+            const time1 = times[partida].nome;
+            const time2 = times[times.length - 1 - partida].nome;
+            partidas.push([time1, time2]);
         }
+        rodadas.push(partidas);
+
+        times.splice(1, 0, times.pop());
     }
 
-    return rodadaSendoConstruida;
-};
+    return rodadas;
+
+}
