@@ -8,156 +8,24 @@
   <script type="text/javascript" src="./index.js"></script>
   <script type="text/javascript" src="./randomizer.js"></script>
   <title>Betting Pool</title>
-  <script>
-    function getInputValues() {
-      const inputData = document.getElementById('team1').value;
-
-      calculateRanking()
-    }
-
-    function calculateRanking() {
-      const rankingTable = `
-          <table border="1" id="ranking_table">
-              <caption>Caption</caption>
-              <thead>
-                  <th>Header 1</th>
-                  <th>Header 2</th>
-              </thead>
-              <tbody>
-              <tr>
-                  <td>Row 1, Cell 1</td>
-                  <td>Row 1, Cell 2</td>
-              </tr>
-              <tr>
-                  <td>Row 2, Cell 1</td>
-                  <td>Row 2, Cell 2</td>
-              </tr>
-              <tbody>
-          </table>
-      `;
-
-      const table = document.getElementById("ranking_table")
-      if (!table) {
-        const body = document.getElementsByTagName('body')[0];
-        body.insertAdjacentHTML('beforeend', rankingTable)
-      }
-    }
-  </script>
-
-
-  <script>
-    let rodadas;
-    let rodada;
-    window.onload = function () {
-      const timesCopia = [...times];
-      rodadas = gerarRodadas(timesCopia);
-      montarRodadaHTML();
-    }
-
-    function randomizeResult() {
-      for (let i = 0; i < rodada.length; i++) {
-        const input = document.getElementById(`team${rodada[i][0]}`);
-        const input1 = document.getElementById(`team${rodada[i][1]}`);
-        let team1 = Math.floor(Math.random() * 4);
-        let team0 = Math.floor(Math.random() * 4);
-        input.value = team1;
-        input1.value = team0;
-      }
-    }
-    function finishRound() {
-      for (let i = 0; i < times.length; i++) {
-        if (i % 2 == 0) {
-          const goal1 = document.getElementById(`team${i}`).value;
-          const goal2 = document.getElementById(`team${i + 1}`).value;
-          if (goal1 > goal2) {
-            times[i].pontos = times[i].pontos + 3
-          } if (goal2 > goal1) {
-            times[i + 1].pontos = times[i + 1].pontos + 3
-          } else if (goal1 == goal2) {
-            times[i].pontos = times[i].pontos + 1
-            times[i + 1].pontos = times[i + 1].pontos + 1
-          }
-        }
-        times[i].jogos = times[i].jogos + 1;
-      }
-    }
-    function montarRodadaHTML() {
-      const game = document.getElementById("matches");
-      rodada = rodadas.pop();
-      if (game) {
-        for (let i = 0; i < rodada.length; i++) {
-          let jogo = 
-            `<div class="match">
-            <label for="team${rodada[i][0]}">${rodada[i][0]}</label>
-            <input type="text" id="team${rodada[i][0]}" name="" required>
-            <p class="versus"> X </p>
-            <input type="text" id="team${rodada[i][1]}" name="" required>
-            <label for="team${rodada[i][1]}">${rodada[i][1]}</label>
-          </div>`;
-          game.insertAdjacentHTML('afterend', jogo);
-        }
-      }
-    };
-
-    function newRound() {
-
-      const formulario = document.getElementById('formulario');
-
-      const divs = formulario.getElementsByClassName('match');
-
-      const divsArray = Array.from(divs);
-
-      divsArray.forEach(function (div) {
-        div.parentNode.removeChild(div);
-      });
-      montarRodadaHTML();
-
-      // criar a tabela com os resultados
-      // destruir as partidas velhas
-      // criar partidas novas
-    }
-
-  </script>
+  
 </head>
 
 <body>
-  <nav>Bet 563</nav>
+<nav>Bet 563</nav>
   <div class="container">
-    <!-- <table class="inline-item">
-    <caption>Soccer Ranking</caption>
-    <thead>
-      <th>Rank</th>
-      <th>Team</th>
-      <th>Played</th>
-      <th>Points</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Tabajara</td>
-        <td>1</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Divino FC</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Vila Xurupita</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Higachi Ichi</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-    </tbody>
-  </table> -->
+    <table class="inline-item" id="ranking_table">
+      <caption>Soccer Ranking</caption>
+      <thead>
+        <th>Rank</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Points</th>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
 
     <form id="formulario" onsubmit="getInputValues(); return false;" class="inline-item">
       <h1 class="title" id="matches">Matches</h1>
@@ -166,15 +34,6 @@
         <button type="button" onclick="finishRound()">Finish Round</button>
         <button type="button" onclick="newRound()">New Round</button>
       </div>
-      <!-- </div>
-  </form>
-  <form onsubmit="getInputValues(); return false;" class="inline-item">
-    <h1 class="title">Matches</h1>
-    <div class="match">
-
-    </div>
-  </form>
-  </div> -->
 </body>
 
 </html>
