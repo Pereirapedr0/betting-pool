@@ -35,6 +35,7 @@ nav {
 }
 
 table {
+  margin-top: 50px;
   border-collapse: collapse;
   width: calc(33%);
 }
@@ -91,12 +92,11 @@ tbody td {
 }
 
 form {
-  width: calc(33%);
-  max-width: 400px;
+  margin-right: 200px;
 }
 
 label {
-  width: 200px;
+  width: 180px;
   padding: 0 20px;
 }
 
@@ -126,7 +126,9 @@ input:-webkit-autofill {
   color: #FFFFFF;
   margin: 20px 20px;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0)
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 600px;
+  height: 50px;
 }
 
 .buttons {

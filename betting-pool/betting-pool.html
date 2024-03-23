@@ -14,26 +14,18 @@
 <body>
 <nav>Bet 563</nav>
   <div class="container">
-    <table class="inline-item" id="ranking_table">
-      <caption>Soccer Ranking</caption>
-      <thead>
-        <th>Rank</th>
-        <th>Team</th>
-        <th>Played</th>
-        <th>Points</th>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
-
-    <form id="formulario" onsubmit="getInputValues(); return false;" class="inline-item">
+    <form id="formulario" onsubmit="calculateRanking(); return false;" class="inline-item">
       <h1 class="title" id="matches">Matches</h1>
       <div class="buttons">
         <button type="button" onclick="randomizeResult()">Game Result</button>
         <button type="button" onclick="finishRound()">Finish Round</button>
         <button type="button" onclick="newRound()">New Round</button>
       </div>
+    </form>
+
+    <table class="inline-item" id="ranking_table">
+    
+    </table>
 </body>
 
 </html>
