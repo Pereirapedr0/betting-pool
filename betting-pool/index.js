@@ -54,8 +54,7 @@ function calculateRanking() {
 
   const table = document.getElementById("ranking_table")
   const body = document.getElementsByTagName('body')[0];
-  body.insertAdjacentHTML('beforeend', table)
-}
+ }
 
 
 

@@ -9,12 +9,13 @@ nav {
   background-color: #306F51; /* Green background color */
   padding: 15px;
   font-weight: bold;
-  position: fixed;
+  margin-bottom: 10px;
   width: 100%;
   z-index: 1000;
   color: #FEE418;
   font-size: xx-large;
   font-style: italic;
+
 }
 
 nav {
@@ -28,6 +29,7 @@ nav {
   transform: translate(-50%, -50%);
   width: 90%;
   text-align: center;
+  margin-top: 90px;
 }
 
 .inline-item {
